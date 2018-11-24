@@ -3,6 +3,7 @@
 ## U3d Resources
 
 * [Awesome Jet Light](https://amine-smahi.github.io/AwesomeJetLight/)
+* [史上最全Unity3D教程](https://www.bilibili.com/video/av28779788?from=search&seid=5026739576410494437)
 * [这这大概是最好的C#入门教程了吧 - bilibili](https://www.bilibili.com/video/av2357992?share_medium=android&share_source=copy_link&bbid=5E6F372C-E061-43BD-AEC6-A74AD7097F0B18486infoc&ts=1542864798956)
 * [Award Winning Tutorials from Unity](https://unity3d.com/cn/learn/tutorials)
 * [Github Untiy Topic](https://github.com/topics/unity)

@@ -5,6 +5,8 @@
 * [Awesome Jet Light](https://amine-smahi.github.io/AwesomeJetLight/)
 * [史上最全Unity3D教程](https://www.bilibili.com/video/av28779788?from=search&seid=5026739576410494437)
 * [这这大概是最好的C#入门教程了吧 - bilibili](https://www.bilibili.com/video/av2357992?share_medium=android&share_source=copy_link&bbid=5E6F372C-E061-43BD-AEC6-A74AD7097F0B18486infoc&ts=1542864798956)
+*. Unity
+* [U3D官方21个案例技巧教程，中文翻译注释，助你快速掌握展UV技巧](https://www.bilibili.com/video/av34865963?from=search&seid=3674352354286656142)
 * [Award Winning Tutorials from Unity](https://unity3d.com/cn/learn/tutorials)
 * [Github Untiy Topic](https://github.com/topics/unity)
 * [Github Unity2d Topic](https://github.com/topics/unity2d)

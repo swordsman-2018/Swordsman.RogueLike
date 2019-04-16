@@ -9,7 +9,7 @@ func _physics_process(delta):
 	move(destination_position)
 
 func _input(e):
-	if (e is InputEventMouseButton and e.button_index == BUTTON_LEFT and not e.pressed):
+	if e.is_action_pressed('left_click'):
 		destination_position = get_global_mouse_position()
 
 func move(to_position):

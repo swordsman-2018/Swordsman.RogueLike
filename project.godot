@@ -19,6 +19,11 @@ config/name="Swordsman.RogueLike"
 run/main_scene="res://areas/area_1.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=420
+window/size/height=320
+
 [input]
 
 ui_left={

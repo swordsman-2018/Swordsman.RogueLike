@@ -8,9 +8,20 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://players/Player.gd"
+}, {
+"base": "YSort",
+"class": "TurnQueue",
+"language": "GDScript",
+"path": "res://areas/TurnQueue.gd"
+} ]
 _global_script_class_icons={
-
+"Player": "",
+"TurnQueue": ""
 }
 
 [application]

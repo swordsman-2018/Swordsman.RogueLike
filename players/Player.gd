@@ -11,6 +11,8 @@ var min_moving_step = 10
 
 var during_turn = false
 
+onready var mouse_track_dot = get_node("MouseTrackDot")
+
 func _ready():
 	destination_position = position
 
@@ -27,5 +29,7 @@ func move():
 func play_turn():
 	yield(get_tree().create_timer(0.1), "timeout")
 	during_turn = true
+	mouse_track_dot.start_track()
 	yield(self.move(), 'completed')
+	mouse_track_dot.stop_track()
 	during_turn = false

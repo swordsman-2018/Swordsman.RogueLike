@@ -12,6 +12,7 @@ var min_moving_step = 10
 var during_turn = false
 
 onready var mouse_track_dot = get_node("MouseTrackDot")
+onready var walking_area = get_node("WalkingArea")
 
 func _ready():
 	destination_position = position
@@ -30,6 +31,9 @@ func play_turn():
 	yield(get_tree().create_timer(0.1), "timeout")
 	during_turn = true
 	mouse_track_dot.start_track()
+	walking_area.global_position = global_position
+	walking_area.show()
 	yield(self.move(), 'completed')
+	walking_area.hide()
 	mouse_track_dot.stop_track()
 	during_turn = false

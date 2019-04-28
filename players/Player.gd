@@ -24,8 +24,7 @@ func _input(e):
 
 func move():
 	yield(self, 'start_move')
-	position.x = destination_position.x
-	position.y = destination_position.y
+	position = mouse_track_dot.global_position
 
 func play_turn():
 	yield(get_tree().create_timer(0.1), "timeout")

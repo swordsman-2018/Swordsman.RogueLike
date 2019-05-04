@@ -27,6 +27,9 @@ func move():
 	position = mouse_track_dot.global_position
 
 func play_turn():
+	yield(choose_movement(), "completed")
+
+func choose_movement():
 	yield(get_tree().create_timer(0.1), "timeout")
 	during_turn = true
 	mouse_track_dot.start_track()
@@ -35,4 +38,4 @@ func play_turn():
 	yield(self.move(), 'completed')
 	walking_area.hide()
 	mouse_track_dot.stop_track()
-	during_turn = false
+	during_turn = false	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://players/Player.gd" type="Script" id=1]
 [ext_resource path="res://players/WalkingArea.tscn" type="PackedScene" id=2]
@@ -36,6 +36,35 @@ tracks/1/keys = {
 "values": [ 133.784 ]
 }
 
+[sub_resource type="Animation" id=3]
+resource_name = "leftAttack"
+length = 0.3
+step = 0.03
+tracks/0/type = "value"
+tracks/0/path = NodePath("sword:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.03, 0.06, 0.09, 0.12, 0.15, 0.18, 0.21, 0.24, 0.27 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -0.599457, 2.49785 ), Vector2( -1.89834, 2.09819 ), Vector2( -1.89834, 2.69768 ), Vector2( -0.899204, 2.19811 ), Vector2( -0.399639, 0.499567 ), Vector2( -1.39878, -1.79846 ), Vector2( -2.99741, -3.19725 ), Vector2( -6.79415, -1.69854 ), Vector2( -9.19209, -0.699402 ), Vector2( -9.79157, 3.19725 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("sword:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.03, 0.06, 0.09, 0.12, 0.15, 0.18, 0.21, 0.24, 0.27 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 133.784, 121.724, 98.3367, 79.5797, 59.2778, 12.173, -8.57155, -41.6665, -63.893, -88.8784 ]
+}
+
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
 
@@ -60,4 +89,5 @@ z_index = -1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/idle = SubResource( 2 )
+anims/leftAttack = SubResource( 3 )
 

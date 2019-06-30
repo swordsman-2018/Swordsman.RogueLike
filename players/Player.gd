@@ -23,7 +23,8 @@ func _ready():
 	$bodyArea.connect("body_entered", self, "hurt")
 
 func hurt(object):
-	print("hurt")
+	if object.name == "swordBody":
+		print("hurt")
 
 func _input(e):
 	if during_turn:

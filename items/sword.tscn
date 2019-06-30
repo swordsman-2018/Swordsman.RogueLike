@@ -9,10 +9,10 @@ scale = Vector2( 0.05, 0.1 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 
-[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+[node name="swordBody" type="KinematicBody2D" parent="."]
 collision_layer = 4
 collision_mask = 2
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KinematicBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="swordBody"]
 polygon = PoolVector2Array( -9.1378, -67.8802, 5.72117, -39.4006, 8.19763, -33.2094, 10.6741, 37.6802, 40.392, 40.7758, 39.7729, 47.8957, 2.00642, 45.7288, 2.00642, 68.9459, -14.0908, 68.9459, -14.7099, 45.7288, -49.3808, 45.1096, -49.3808, 39.5375, -27.7115, 37.9897, -24.6159, 31.4889, -28.3306, 12.2961, -26.4732, -14.3261, -22.1394, -38.7815 )
 

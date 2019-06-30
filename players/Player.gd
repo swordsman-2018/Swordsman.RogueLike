@@ -20,6 +20,10 @@ var turn_state = "Suspend"
 
 func _ready():
 	destination_position = position
+	$bodyArea.connect("body_entered", self, "hurt")
+
+func hurt(object):
+	print("hurt")
 
 func _input(e):
 	if during_turn:
@@ -36,7 +40,6 @@ func move():
 func choose_attack():
 	yield(self, 'attack_chosen')
 	get_node("AnimationPlayer").play("leftAttack")
-	print("attack")
 
 func play_turn():
 	during_turn = true

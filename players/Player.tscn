@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://players/Player.gd" type="Script" id=1]
 [ext_resource path="res://players/WalkingArea.tscn" type="PackedScene" id=2]
@@ -65,6 +65,9 @@ tracks/1/keys = {
 "values": [ 133.784, -44.7129, -58.3691, -64.965, -73.0085, -85.6366, -96.186, -96.186, -120.683, 133.784 ]
 }
 
+[sub_resource type="CircleShape2D" id=4]
+radius = 19.877
+
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
 
@@ -76,6 +79,7 @@ scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 3 )
 
 [node name="bodyShape" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( -4.46332, 53.0455 )
 shape = SubResource( 1 )
 
@@ -91,4 +95,12 @@ z_index = -1
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/idle = SubResource( 2 )
 anims/leftAttack = SubResource( 3 )
+
+[node name="bodyArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bodyArea"]
+position = Vector2( -4.59308, 54.1983 )
+shape = SubResource( 4 )
 

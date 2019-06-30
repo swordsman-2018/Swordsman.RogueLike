@@ -2,7 +2,7 @@ extends Node2D
 
 var target_player = null
 var disabed = true
-var move_range_radius = 25
+var move_range_radius = 100
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

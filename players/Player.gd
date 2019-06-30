@@ -35,6 +35,7 @@ func move():
 
 func choose_attack():
 	yield(self, 'attack_chosen')
+	get_node("AnimationPlayer").play("leftAttack")
 	print("attack")
 
 func play_turn():
@@ -59,7 +60,7 @@ func movement_turn():
 	turn_state = "MovementChosen"
 
 func attack_turn():
-	yield(get_tree().create_timer(0.1), "timeout")
+	yield(get_tree().create_timer(0.5), "timeout")
 	
 	yield(choose_attack(), 'completed')
 	

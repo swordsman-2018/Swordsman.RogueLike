@@ -47,10 +47,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.03, 0.06, 0.09, 0.12, 0.15, 0.18, 0.21, 0.24 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.03, 0.06, 0.09, 0.12, 0.15, 0.18, 0.21, 0.24, 0.27 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ Vector2( -4.27392, 21.3295 ), Vector2( -51.3529, -24.6013 ), Vector2( -52.7309, -14.9558 ), Vector2( -56.635, -7.60691 ), Vector2( -58.4722, -3.47314 ), Vector2( -61.917, 3.87578 ), Vector2( -62.8356, 14.4399 ), Vector2( -62.8356, 14.4399 ), Vector2( -61.228, 36.0273 ) ]
+"values": [ Vector2( -4.27392, 21.3295 ), Vector2( -51.3529, -24.6013 ), Vector2( -52.7309, -14.9558 ), Vector2( -56.635, -7.60691 ), Vector2( -58.4722, -3.47314 ), Vector2( -61.917, 3.87578 ), Vector2( -62.8356, 14.4399 ), Vector2( -62.8356, 14.4399 ), Vector2( -61.228, 36.0273 ), Vector2( -4.27392, 21.3295 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("sword:rotation_degrees")
@@ -59,10 +59,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.03, 0.06, 0.09, 0.12, 0.15, 0.18, 0.21, 0.24 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.03, 0.06, 0.09, 0.12, 0.15, 0.18, 0.21, 0.24, 0.27 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 133.784, -44.7129, -58.3691, -64.965, -73.0085, -85.6366, -96.186, -96.186, -120.683 ]
+"values": [ 133.784, -44.7129, -58.3691, -64.965, -73.0085, -85.6366, -96.186, -96.186, -120.683, 133.784 ]
 }
 
 [node name="Player" type="KinematicBody2D"]

@@ -1,18 +1,34 @@
 extends Node2D
 
 #export var rotation_angle = 50
-export var middle_angle = 135
+var middle_angle = 135
 export var half_angle = 60
 export var radius = 80
 
+var target_player = null
+
+var disabed = true
+
+func _ready():
+	self.hide()
+	target_player = get_parent()
+
 func _process(delta):
-#	angle_from += rotation_angle
-#	angle_to += rotation_angle
-#    # We only wrap angles when both of them are bigger than 360.
-#	if angle_from > 360 and angle_to > 360:
-#		angle_from = wrapf(angle_from, 0, 360)
-#		angle_to = wrapf(angle_to, 0, 360)
+	if disabed:
+		return
+	var mouse_position = get_global_mouse_position()
+	var radius = (mouse_position - target_player.position).angle()
+	middle_angle = rad2deg(radius) + 65
+	
 	update()
+
+func start_track():
+	self.show()
+	disabed = false
+
+func stop_track():
+	disabed = true
+	self.hide()
 
 func _draw():
 	var center = Vector2(0, 0)

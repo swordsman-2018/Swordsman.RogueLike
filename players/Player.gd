@@ -14,6 +14,7 @@ var during_turn = false
 
 onready var mouse_track_dot = get_node("MouseTrackDot")
 onready var walking_area = get_node("WalkingArea")
+onready var attack_area = get_node("AttackArea")
 
 # Suspend -> Started -> MovementChosen -> AttatckChosen -> Suspend
 var turn_state = "Suspend"
@@ -60,7 +61,9 @@ func movement_turn():
 func attack_turn():
 	yield(get_tree().create_timer(0.5), "timeout")
 	
+	attack_area.start_track()
 	yield(choose_attack(), 'completed')
+	attack_area.stop_track()
 	
 	turn_state = "AttackChosen"
 

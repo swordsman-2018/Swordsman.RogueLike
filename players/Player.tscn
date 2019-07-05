@@ -116,7 +116,7 @@ visible = false
 position = Vector2( -4.46332, 53.0455 )
 shape = SubResource( 1 )
 
-[node name="MouseTrackDot" parent="." instance=ExtResource( 5 )]
+[node name="PlayerShadowBody" parent="." instance=ExtResource( 5 )]
 visible = false
 
 [node name="sword" parent="." instance=ExtResource( 6 )]

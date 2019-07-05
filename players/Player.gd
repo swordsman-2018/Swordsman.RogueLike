@@ -12,7 +12,7 @@ var min_moving_step = 10
 
 var during_turn = false
 
-onready var mouse_track_dot = get_node("MouseTrackDot")
+onready var player_shadow_body = get_node("PlayerShadowBody")
 onready var walking_area = get_node("WalkingArea")
 onready var attack_area = get_node("AttackArea")
 
@@ -49,12 +49,12 @@ func attack_action():
 func movement_turn():
 	yield(get_tree().create_timer(0.1), "timeout")
 	
-	mouse_track_dot.start_track()
+	player_shadow_body.start_track()
 	walking_area.global_position = global_position
 	walking_area.show()
 	yield(self.choose_movement(), 'completed')
 	walking_area.hide()
-	mouse_track_dot.stop_track()
+	player_shadow_body.stop_track()
 	
 	turn_state = "MovementChosen"
 
@@ -86,7 +86,7 @@ func _input(e):
 			emit_signal("attack_chosen")
 
 func move():
-	position = mouse_track_dot.global_position
+	position = player_shadow_body.global_position
 
 func attack():
 	if attack_direction == "attack_left":

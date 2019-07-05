@@ -4,7 +4,6 @@ class_name Player
 
 signal start_move()
 signal attack_chosen()
-signal attack_finished()
 
 export (int) var speed = 200000
 
@@ -18,6 +17,8 @@ onready var walking_area = get_node("WalkingArea")
 
 # Suspend -> Started -> MovementChosen -> AttatckChosen -> Suspend
 var turn_state = "Suspend"
+
+var attack_direction
 
 func _ready():
 	destination_position = position
@@ -75,11 +76,20 @@ func _input(e):
 			destination_position = get_global_mouse_position()
 			emit_signal("start_move")
 		if turn_state == "MovementChosen" and e.is_action_pressed('left_click'):
+			if e.position.x > self.position.x:
+				attack_direction = "attack_right"
+			else:
+				attack_direction = "attack_left"
 			emit_signal("attack_chosen")
 
 func move():
 	position = mouse_track_dot.global_position
 
 func attack():
-	get_node("AnimationPlayer").play("leftAttack")
+	if attack_direction == "attack_left":
+		get_node("AnimationPlayer").play("leftAttack")
+	else:
+		get_node("AnimationPlayer").play("rightAttack")
+
+
 

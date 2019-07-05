@@ -4,6 +4,7 @@ class_name Player
 
 signal start_move()
 signal attack_chosen()
+signal attack_finished()
 
 export (int) var speed = 200000
 
@@ -26,30 +27,22 @@ func hurt(object):
 	if object.name == "swordBody":
 		print("hurt")
 
-func _input(e):
-	if during_turn:
-		if turn_state == "Started" and e.is_action_pressed('left_click'):
-			destination_position = get_global_mouse_position()
-			emit_signal("start_move")
-		if turn_state == "MovementChosen" and e.is_action_pressed('left_click'):
-			emit_signal("attack_chosen")
-
-func move():
-	yield(self, 'start_move')
-	position = mouse_track_dot.global_position
-
-func choose_attack():
-	yield(self, 'attack_chosen')
-	get_node("AnimationPlayer").play("leftAttack")
-
-func play_turn():
+func attack_prepare():
 	during_turn = true
 	turn_state = "Started"
 	
-	yield(movement_turn(), "completed")
-	yield(attack_turn(), "completed")
+	yield(self.movement_turn(), "completed")
+	yield(self.attack_turn(), "completed")
 	
 	during_turn = false
+
+func attack_move():
+	yield(get_tree().create_timer(0.01), "timeout")
+	move()
+
+func attack_action():
+	yield(get_tree().create_timer(0.01), "timeout")
+	attack()
 
 func movement_turn():
 	yield(get_tree().create_timer(0.1), "timeout")
@@ -57,7 +50,7 @@ func movement_turn():
 	mouse_track_dot.start_track()
 	walking_area.global_position = global_position
 	walking_area.show()
-	yield(self.move(), 'completed')
+	yield(self.choose_movement(), 'completed')
 	walking_area.hide()
 	mouse_track_dot.stop_track()
 	
@@ -69,3 +62,24 @@ func attack_turn():
 	yield(choose_attack(), 'completed')
 	
 	turn_state = "AttackChosen"
+
+func choose_movement():
+	yield(self, 'start_move')
+
+func choose_attack():
+	yield(self, 'attack_chosen')
+
+func _input(e):
+	if during_turn:
+		if turn_state == "Started" and e.is_action_pressed('left_click'):
+			destination_position = get_global_mouse_position()
+			emit_signal("start_move")
+		if turn_state == "MovementChosen" and e.is_action_pressed('left_click'):
+			emit_signal("attack_chosen")
+
+func move():
+	position = mouse_track_dot.global_position
+
+func attack():
+	get_node("AnimationPlayer").play("leftAttack")
+

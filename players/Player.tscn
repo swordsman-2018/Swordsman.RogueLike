@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://players/Player.gd" type="Script" id=1]
 [ext_resource path="res://players/WalkingArea.tscn" type="PackedScene" id=2]
@@ -65,7 +65,36 @@ tracks/1/keys = {
 "values": [ 133.784, -44.7129, -58.3691, -64.965, -73.0085, -85.6366, -96.186, -96.186, -120.683, 133.784 ]
 }
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="Animation" id=4]
+resource_name = "rightAttack"
+length = 0.3
+step = 0.03
+tracks/0/type = "value"
+tracks/0/path = NodePath("sword:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.03, 0.06, 0.09, 0.15, 0.21, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 33.8486, -17.9413 ), Vector2( 41.6568, -5.76964 ), Vector2( 46.4796, 0.890326 ), Vector2( 48.5465, 11.4544 ), Vector2( 44.872, 24.315 ), Vector2( 40.7382, 37.4053 ), Vector2( -2.89601, 20.1812 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("sword:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.03, 0.06, 0.09, 0.15, 0.21, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 49.0161, 64.2318, 76.6858, 91.5135, 109.809, 122.631, 132.339 ]
+}
+
+[sub_resource type="CircleShape2D" id=5]
 radius = 19.877
 
 [node name="Player" type="KinematicBody2D"]
@@ -87,14 +116,15 @@ shape = SubResource( 1 )
 visible = false
 
 [node name="sword" parent="." instance=ExtResource( 5 )]
-position = Vector2( -4.27392, 21.3295 )
-rotation = 2.33497
+position = Vector2( -2.89601, 20.1812 )
+rotation = 2.30975
 scale = Vector2( 0.3, 0.7 )
 z_index = -1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/idle = SubResource( 2 )
 anims/leftAttack = SubResource( 3 )
+anims/rightAttack = SubResource( 4 )
 
 [node name="bodyArea" type="Area2D" parent="."]
 collision_layer = 2
@@ -102,5 +132,5 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bodyArea"]
 position = Vector2( -4.59308, 54.1983 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 

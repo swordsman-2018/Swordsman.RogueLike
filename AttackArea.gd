@@ -22,13 +22,12 @@ func _process(delta):
 	
 	update()
 
-func start_track():
-	self.show()
+func track_attack_direction():
 	disabed = false
-
-func stop_track():
-	disabed = true
+	self.show()
+	yield()
 	self.hide()
+	disabed = true
 
 func _draw():
 	var center = Vector2(0, 0)

@@ -3,7 +3,7 @@
 [ext_resource path="res://players/Player.gd" type="Script" id=1]
 [ext_resource path="res://players/WalkingArea.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/player/player.png" type="Texture" id=3]
-[ext_resource path="res://items/mouse_track_dot.tscn" type="PackedScene" id=4]
+[ext_resource path="res://items/player_shadow_body.tscn" type="PackedScene" id=4]
 [ext_resource path="res://items/sword.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CircleShape2D" id=1]

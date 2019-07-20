@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://items/mouse_track_dot.gd" type="Script" id=1]
+[ext_resource path="res://items/player_shadow_body.gd" type="Script" id=1]
 [ext_resource path="res://items/Oval.png" type="Texture" id=2]
 [ext_resource path="res://players/AttackArea.tscn" type="PackedScene" id=3]
 

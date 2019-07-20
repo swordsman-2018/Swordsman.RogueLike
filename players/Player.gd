@@ -62,31 +62,20 @@ func movement_turn():
 func attack_turn():
 	yield(get_tree().create_timer(0.5), "timeout")
 	
-	var track_action = player_shadow_body.track_attack_choose()
-	
-	yield(choose_attack(), 'completed')
+	yield(player_shadow_body.track_attack_choose(), 'completed')
 
-	track_action.resume()
+	attack_direction = player_shadow_body.attack_direction
 	
 	turn_state = "AttackChosen"
 
 func choose_movement():
 	yield(self, 'start_move')
 
-func choose_attack():
-	yield(self, 'attack_chosen')
-
 func _input(e):
 	if during_turn:
 		if turn_state == "Started" and e.is_action_pressed('left_click'):
 			destination_position = get_global_mouse_position()
 			emit_signal("start_move")
-		if turn_state == "MovementChosen" and e.is_action_pressed('left_click'):
-			if e.position.x > self.position.x:
-				attack_direction = "attack_right"
-			else:
-				attack_direction = "attack_left"
-			emit_signal("attack_chosen")
 
 func move():
 	position = player_shadow_body.global_position

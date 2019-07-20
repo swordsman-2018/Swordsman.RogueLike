@@ -14,7 +14,6 @@ var during_turn = false
 
 onready var player_shadow_body = get_node("PlayerShadowBody")
 onready var walking_area = get_node("WalkingArea")
-onready var attack_area = get_node("AttackArea")
 
 # Suspend -> Started -> MovementChosen -> AttatckChosen -> Suspend
 var turn_state = "Suspend"
@@ -49,21 +48,21 @@ func attack_action():
 func movement_turn():
 	yield(get_tree().create_timer(0.1), "timeout")
 	
-	player_shadow_body.start_track()
+	player_shadow_body.start_movement_choose_track()
 	walking_area.global_position = global_position
 	walking_area.show()
 	yield(self.choose_movement(), 'completed')
 	walking_area.hide()
-	player_shadow_body.stop_track()
+	player_shadow_body.stop_movement_choose_track()
 	
 	turn_state = "MovementChosen"
 
 func attack_turn():
 	yield(get_tree().create_timer(0.5), "timeout")
 	
-	attack_area.start_track()
+	player_shadow_body.start_attack_choose_track()
 	yield(choose_attack(), 'completed')
-	attack_area.stop_track()
+	player_shadow_body.stop_attack_choose_track()
 	player_shadow_body.hide()
 	
 	turn_state = "AttackChosen"

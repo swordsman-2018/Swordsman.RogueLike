@@ -5,19 +5,20 @@ var middle_angle = 135
 export var half_angle = 60
 export var radius = 80
 
-var target_player = null
+#var target_player = null
+var player_shadow_body = null
 
 var disabed = true
 
 func _ready():
 	self.hide()
-	target_player = get_parent()
+	player_shadow_body = get_parent()
 
 func _process(delta):
 	if disabed:
 		return
 	var mouse_position = get_global_mouse_position()
-	var radius = (mouse_position - target_player.position).angle()
+	var radius = (mouse_position - player_shadow_body.position).angle()
 	middle_angle = rad2deg(radius) + 65
 	
 	update()
@@ -32,6 +33,7 @@ func stop_track():
 
 func _draw():
 	var center = Vector2(0, 0)
+#	var center = player_shadow_body.position
 	var color = Color(1.0, 0.0, 0.0, 0.2)
 	var angle_from = middle_angle - half_angle
 	var angle_to = middle_angle + half_angle

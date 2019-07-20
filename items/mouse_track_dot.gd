@@ -20,11 +20,10 @@ func _process(delta):
 	var offset = mouse_position - target_player.position
 	global_position = target_player.position + offset.clamped(move_range_radius)
 
-func start_movement_choose_track():
-	self.show()
+func track_movement_choose():
 	disabed = false
-
-func stop_movement_choose_track():
+	self.show()
+	yield()
 	disabed = true
 
 func start_attack_choose_track():

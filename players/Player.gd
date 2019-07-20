@@ -62,10 +62,11 @@ func movement_turn():
 func attack_turn():
 	yield(get_tree().create_timer(0.5), "timeout")
 	
-	player_shadow_body.start_attack_choose_track()
+	var track_action = player_shadow_body.track_attack_choose()
+	
 	yield(choose_attack(), 'completed')
-	player_shadow_body.stop_attack_choose_track()
-	player_shadow_body.hide()
+
+	track_action.resume()
 	
 	turn_state = "AttackChosen"
 

@@ -26,8 +26,8 @@ func track_movement_choose():
 	yield()
 	disabed = true
 
-func start_attack_choose_track():
+func track_attack_choose():
 	attack_area.start_track()
-
-func stop_attack_choose_track():
+	yield()
 	attack_area.stop_track()
+	self.hide()

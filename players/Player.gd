@@ -64,6 +64,7 @@ func attack_turn():
 	attack_area.start_track()
 	yield(choose_attack(), 'completed')
 	attack_area.stop_track()
+	player_shadow_body.hide()
 	
 	turn_state = "AttackChosen"
 

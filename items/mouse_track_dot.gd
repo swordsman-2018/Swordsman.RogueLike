@@ -23,4 +23,4 @@ func start_track():
 
 func stop_track():
 	disabed = true
-	self.hide()
+#	self.hide()

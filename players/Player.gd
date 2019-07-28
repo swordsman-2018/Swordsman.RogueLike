@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 class_name Player
 
-var health_ponit = 10
+export var health_point = 10
 
 signal start_move()
 signal attack_chosen()
@@ -26,10 +26,10 @@ func _ready():
 	destination_position = position
 	$bodyArea.connect("body_entered", self, "hurt")
 
-func hurt(object):
-	if object.name == "sword":
-		print("hurt")
-		print(object.dmp_value)
+func hurt(attackItem):
+	if attackItem.name == "sword":
+		health_point -= attackItem.damage_point
+		print(health_point)
 
 func attack_prepare():
 	during_turn = true

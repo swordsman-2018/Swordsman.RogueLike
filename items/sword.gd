@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export var damage_point = 2
+export var damage_point = 20
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

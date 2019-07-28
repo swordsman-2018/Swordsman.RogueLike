@@ -19,5 +19,5 @@ script = ExtResource( 2 )
 position = Vector2( 150, 150 )
 
 [node name="Player2" parent="TurnQueue" instance=ExtResource( 3 )]
-position = Vector2( 198.042, 153.626 )
+position = Vector2( 347.392, 148.436 )
 
